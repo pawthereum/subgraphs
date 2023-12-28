@@ -1,0 +1,29 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: PawSwap
+    network: bsc
+    source:
+      address: "0xfb96997aC9D14f39d202e6D505C76EE01f85013D"
+      abi: PawSwap
+      startBlock: 20981542
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Buy
+        - Sell
+        - Donation
+        - DonationsByToken
+      abis:
+        - name: PawSwap
+          file: PawSwap/abis/PawSwap.json
+      eventHandlers:
+        - event: Buy(indexed address,indexed address,uint256,uint256,uint256,indexed address)
+          handler: handleBuy
+        - event: Sell(indexed address,indexed address,uint256,uint256,uint256,indexed address)
+          handler: handleSell
+      file: PawSwap/PawSwap.wasm

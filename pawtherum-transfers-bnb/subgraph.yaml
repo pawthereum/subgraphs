@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Pawthereum
+    network: bsc
+    source:
+      address: "0x409e215738e31d8ab252016369c2dd9c2008fee0"
+      abi: Pawthereum
+      startBlock: 14142298
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: Pawthereum
+          file: ./abis/Pawthereum.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/pawthereum.ts

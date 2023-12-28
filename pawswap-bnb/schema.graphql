@@ -1,0 +1,44 @@
+type Buy @entity(immutable: true) {
+  id: Bytes!
+  buyer: Bytes! # address
+  tokenAddress: Bytes! # address
+  ethSpent: BigInt! # uint256
+  tokensReceived: BigInt! # uint256
+  customTaxAmount: BigInt! # uint256
+  customTaxAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Sell @entity(immutable: true) {
+  id: Bytes!
+  seller: Bytes! # address
+  tokenAddress: Bytes! # address
+  tokensSold: BigInt! # uint256
+  ethReceived: BigInt! # uint256
+  customTaxAmount: BigInt! # uint256
+  customTaxAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Donation @entity(immutable: true) {
+  id: Bytes!
+  donor: Bytes! # address
+  tokenSwapped: Bytes! # address
+  donationSwapRatio: BigInt! # uint256
+  donationAmount: BigInt! # uint256
+  donationRecipient: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenDonationTally @entity(immutable: false) {
+  id: Bytes! # address
+  donationSwapRatio: BigInt! # uint256
+  totalSwapped: BigInt! # uint256
+  totalDonated: BigInt! # uint256
+}
