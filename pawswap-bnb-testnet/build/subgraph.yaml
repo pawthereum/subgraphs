@@ -6,9 +6,9 @@ dataSources:
     name: PawSwap
     network: chapel
     source:
-      address: "0x81A3c0125ADD4A5466a27a71b31e0C13B1429091"
+      address: "0x14349BEa20b5067F5F1fc1d0f534716b9C6D4636"
       abi: PawSwap
-      startBlock: 22234206
+      startBlock: 36592882
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
